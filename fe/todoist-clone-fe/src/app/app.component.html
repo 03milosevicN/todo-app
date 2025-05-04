@@ -1,0 +1,40 @@
+<div class="main">
+
+  <div class="one">
+    <mat-drawer-container class="example-container" autosize>
+
+      <mat-drawer class="example-sidenav" mode="side" opened>
+
+        <!--? generate new task-->
+        <button mat-button (click)="navigateToTask()" class="drawer-button"><i class="fa-solid fa-plus"></i> add task</button>
+
+        <!--? search through generated tasks-->
+        <button mat-button class="drawer-button"><i class="fa-solid fa-magnifying-glass"></i> search</button>
+
+        <!--? opens up calendar, see if tasks were scheduled for other day-->
+        <button mat-button class="drawer-button"><i class="fa-solid fa-calendar-days"></i> upcoming</button>
+
+        <!--? saves all task filters-->
+        <button mat-button class="drawer-button"><i class="fa-solid fa-hashtag"></i> labels</button>
+
+        <!--? go back to homepage-->
+        <a routerLink="/" mat-button id="drawer-button"><i class="fa-solid fa-house"></i> home</a>
+
+        <!--? used for API communication testing, REMOVE LATER-->
+        <a routerLink="/api" mat-button id="drawer-button-2"><i class="fa-solid fa-code"></i> api (TESTING)</a>
+
+      </mat-drawer>
+
+    </mat-drawer-container>
+
+  </div>
+
+
+  <div class="two">
+
+    <!--page content-->
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>

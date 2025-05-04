@@ -1,0 +1,40 @@
+.example-container {
+  width: 250px;
+  height: 100%;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+}
+.drawer-button {
+  display: flex;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  color: #44624a !important;
+}
+.drawer-button i {
+  color: #44624a;
+}
+#drawer-button {
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  color: #44624a;
+}
+#drawer-button-2 {
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  color: #44624a;
+}
+
+.two {
+  padding: 25px;
+}
+
