@@ -1,8 +1,36 @@
 <div class="task-main">
 
-  <h2>Task template being added</h2>
+  <h2>New task <i class="fa-regular fa-note-sticky"></i></h2>
 
-  <button mat-button><i class="fa-solid fa-floppy-disk"></i> save</button>
-  <button mat-button><i class="fa-solid fa-trash"></i> scrap</button>
+  <div class="before-task-creation">
+      <!--should dissapear after input-->
+      <input id="task-input" matInput placeholder="Enter task name..." (keyup.enter)="saveTaskByName()" [(ngModel)]="taskName">
+  </div>
+
+  <div *ngIf="newTask">
+      <!--Should be generated once taskName is entered-->
+
+      <h1>{{newTask.taskCreatedAt | date:'medium'}}</h1>
+
+      <h2>{{newTask.taskName}}</h2>
+
+      <!--should be interactive-->
+      <p>Tags: {{newTask.taskTags}}</p>
+
+      <!--should be interactive-->
+      <p>Completed: {{newTask.isCompleted}}</p>
+
+      <!--should be interactive-->
+      <p>Priority: {{newTask.taskPriority}}</p>
+
+      <!--Should be generated once taskName is entered-->
+
+      <!--save task as JSON in DB later and as mat-card in here-->
+      <button mat-button><i class="fa-solid fa-floppy-disk"></i> save</button>
+
+      <!--delete task-->
+      <button mat-button><i class="fa-solid fa-trash"></i> scrap</button>
+  </div>
+
 
 </div>

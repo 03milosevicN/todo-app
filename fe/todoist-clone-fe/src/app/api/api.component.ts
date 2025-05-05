@@ -15,9 +15,7 @@ export class ApiComponent {
   public message: any;
 
   constructor(private apiService: ApiService) {
-    this.apiService.getMessage().subscribe(data => {
-      this.message = data;
-    })
+    this.apiService.getMessage().subscribe(data => {this.message = data;});
   }
 
 }

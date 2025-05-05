@@ -1,9 +1,8 @@
-export interface task {
+export interface TaskModel {
 
   id: number;
   taskName: string;
   taskCreatedAt: Date;
-  taskHeaderName: string;
   taskTags: string[];
   taskText: string;
   /* task priority colors:
