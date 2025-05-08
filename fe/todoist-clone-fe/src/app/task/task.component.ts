@@ -5,6 +5,8 @@ import {MatInput} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {TaskModel} from "../../models/task.model";
 import {DatePipe, NgIf} from "@angular/common";
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatCard, MatCardHeader} from "@angular/material/card";
 
 @Component({
   selector: 'app-task',
@@ -13,7 +15,11 @@ import {DatePipe, NgIf} from "@angular/common";
     MatInput,
     FormsModule,
     NgIf,
-    DatePipe
+    DatePipe,
+    MatNavList,
+    MatListItem,
+    MatCard,
+    MatCardHeader,
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
@@ -23,9 +29,12 @@ export class TaskComponent {
   public taskName: string = " ";
   newTask: TaskModel | null = null;
 
+  allTasks: TaskModel[] = [];
+
+
   constructor(private taskService: TaskService) {}
 
-  saveTaskByName(): void {
+  public enterTaskName(): void {
 
     if (!this.taskName.trim()) { return; }
 
@@ -35,4 +44,14 @@ export class TaskComponent {
     this.taskName = " ";
 
   }
+
+  public saveTask(): void {
+    if (this.newTask) {
+      this.allTasks.push(this.newTask);
+
+      console.log("Task pushed into array")
+
+    }
+  }
+
 }

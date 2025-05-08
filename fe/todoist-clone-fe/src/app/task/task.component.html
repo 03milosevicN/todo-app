@@ -4,7 +4,7 @@
 
   <div class="before-task-creation">
       <!--should dissapear after input-->
-      <input id="task-input" matInput placeholder="Enter task name..." (keyup.enter)="saveTaskByName()" [(ngModel)]="taskName">
+      <input id="task-input" matInput placeholder="Enter task name..." (keyup.enter)="enterTaskName()" [(ngModel)]="taskName">
   </div>
 
   <div *ngIf="newTask">
@@ -13,6 +13,8 @@
       <h1>{{newTask.taskCreatedAt | date:'medium'}}</h1>
 
       <h2>{{newTask.taskName}}</h2>
+
+      <!--There should be a field for a note-->
 
       <!--should be interactive-->
       <p>Tags: {{newTask.taskTags}}</p>
@@ -26,11 +28,25 @@
       <!--Should be generated once taskName is entered-->
 
       <!--save task as JSON in DB later and as mat-card in here-->
-      <button mat-button><i class="fa-solid fa-floppy-disk"></i> save</button>
+      <button mat-button (click)="saveTask()"><i class="fa-solid fa-floppy-disk"></i> save</button>
 
       <!--delete task-->
       <button mat-button><i class="fa-solid fa-trash"></i> scrap</button>
   </div>
 
+  <div *ngIf="!(allTasks.length == 0)">
+      <h1>Show all tasks</h1>
+
+      <mat-nav-list>
+          @for (task of allTasks; track task.id) {
+              <mat-list-item>
+                  <mat-card class="task-saved-card" appearance="outlined">
+                      <mat-card-header>{{task.taskName}}</mat-card-header>
+                  </mat-card>
+              </mat-list-item>
+          }
+      </mat-nav-list>
+
+  </div>
 
 </div>
